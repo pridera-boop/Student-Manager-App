@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Edit Student</title>
+  <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="add-student.html" class="nav-link">Add Student</a>
+  </nav>
+  <header>
+    <a href="index.html" class="back-button">← Back</a>
+    <h1>Edit Student</h1>
+  </header>
+  <main>
+    <form id="edit-student-form" action="#" method="post">
+      <input type="hidden" name="id" value="">
+      <label>
+        Name
+        <input type="text" name="name" value="" required>
+      </label>
+      <label>
+        Class
+        <input type="text" name="studentClass" value="" required>
+      </label>
+      <label>
+        Gender
+        <input type="text" name="gender" value="" required>
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" value="" required>
+      </label>
+      <label>
+        Age
+        <input type="number" name="age" min="0" value="">
+      </label>
+      <label>
+        Course
+        <input type="text" name="course" value="">
+      </label>
+      <div class="actions">
+        <button type="submit">Save Changes</button>
+        <a href="index.html" class="button">Cancel</a>
+      </div>
+    </form>
+  </main>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const form = document.getElementById('edit-student-form');
+
+    if (params.has('name')) {
+      form.elements['id'].value = params.get('id') || '';
+      form.elements['name'].value = params.get('name');
+      form.elements['studentClass'].value = params.get('studentClass') || '';
+      form.elements['gender'].value = params.get('gender') || '';
+      form.elements['email'].value = params.get('email') || '';
+      form.elements['age'].value = params.get('age') || '';
+      form.elements['course'].value = params.get('course') || '';
+    }
+  </script>
+</body>
+</html>
